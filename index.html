@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dakshesh T | AI Developer</title>
+    <title>Dakshesh T | Junior Data Scientist</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%236366f1%22>D</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .typed-text-container {
+            margin-left: 0.5rem;
+            color: var(--primary);
+        }
+    
+        #typed-text {
+            display: inline-block;
+            position: relative;
+        }
+    
+        .typed-cursor {
+            opacity: 1;
+            animation: blink 0.7s infinite;
+            color: var(--primary);
+        }
+    
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+    
+        @keyframes blink {
+            0%, 100% { opacity: 1 }
+            50% { opacity: 0 }
+        }
+    </style>
     <style>
         :root {
             --primary: #6366f1;
@@ -55,14 +85,15 @@
             position: absolute;
             border: 2px solid var(--primary);
             animation: float 20s infinite linear;
+            opacity: 0.7;
         }
 
         @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(10vw, 10vh) rotate(90deg); }
-            50% { transform: translate(-10vw, 20vh) rotate(180deg); }
-            75% { transform: translate(15vw, -10vh) rotate(270deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(10vw, 10vh) rotate(90deg) scale(1.1); }
+            50% { transform: translate(-10vw, 20vh) rotate(180deg) scale(0.9); }
+            75% { transform: translate(15vw, -10vh) rotate(270deg) scale(1.2); }
+            100% { transform: translate(0, 0) rotate(360deg) scale(1); }
         }
 
         .dark-mode {
@@ -103,6 +134,12 @@
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
 
         .nav-links {
@@ -155,6 +192,12 @@
             place-items: center;
             color: white;
             transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .hero {
@@ -182,6 +225,12 @@
             padding: 4px;
             margin: 0 auto;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: profileFloat 0s ease-in-out infinite;
+        }
+
+        @keyframes profileFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
         .profile-img {
@@ -196,55 +245,120 @@
         }
 
         .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .title-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .animated-text {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .animated-text::after {
+            content: "|";
+            position: absolute;
+            right: -10px;
+            animation: blink 0.7s infinite;
+        }
+
+        .role-container {
+            display: inline-block;
+            position: relative;
+            height: 60px;
+            overflow: hidden;
+            vertical-align: top;
+        }
+
+        .role-text {
+            position: relative;
+            display: block;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: roleAnimation 9s infinite;
+            white-space: nowrap;
+            font-size: 3rem;
+            line-height: 1;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes roleAnimation {
+            0% { opacity: 0; transform: translateY(20px) }
+            15% { opacity: 1; transform: translateY(0) }
+            30% { opacity: 1; transform: translateY(0) }
+            45% { opacity: 0; transform: translateY(-20px) }
+            100% { opacity: 0; transform: translateY(-20px) }
+        }
+
+        .role-text:nth-child(1) { animation-delay: 1.5s }
+        .role-text:nth-child(2) { animation-delay: 4.5s }
+        .role-text:nth-child(3) { animation-delay: 7.5s }
+
+        @keyframes typing {
+            from { width: 0; opacity: 1 }
+            to { width: 100%; opacity: 1 }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1 }
+            50% { opacity: 0 }
         }
 
         .hero-subtitle {
             font-size: 1.2rem;
             color: #64748b;
             margin-bottom: 2rem;
+            animation: subtitleReveal 1.2s ease-out 0.3s both;
+            position: relative;
+            display: inline-block;
+        }
+
+        @keyframes subtitleReveal {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            60% {
+                opacity: 1;
+                transform: translateX(10px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .hero-subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: right;
+            animation: underlineReveal 1s ease-out 1.5s forwards;
+        }
+
+        @keyframes underlineReveal {
+            to {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
         }
 
         .dark-mode .hero-subtitle {
             color: #94a3b8;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .metric-card {
-            padding: 1.5rem;
-            background: rgba(99, 102, 241, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(99, 102, 241, 0.1);
-            transition: var(--transition);
-        }
-
-        .dark-mode .metric-card {
-            background: rgba(248, 250, 252, 0.05);
-        }
-
-        .metric-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            background: rgba(99, 102, 241, 0.1);
-        }
-
-        .metric-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
         }
 
         .section {
@@ -256,6 +370,13 @@
             text-align: center;
             margin-bottom: 4rem;
             position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .section-title.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-title::after {
@@ -336,6 +457,11 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .dark-mode .skill-card {
@@ -349,10 +475,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg,
-                    transparent,
-                    rgba(99, 102, 241, 0.1),
-                    transparent);
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
             transition: 0.8s;
         }
 
@@ -592,32 +715,44 @@
                 width: calc(100% - 40px);
                 left: 40px !important;
             }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
+
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .hero-title {
+                font-size: 2.5rem;
+                flex-direction: column;
+                align-items: flex-start;
             }
-
-            .hero {
-                padding-top: 8rem;
+            .role-text {
+                font-size: 1.8rem;
             }
-
-            .metrics-grid {
-                grid-template-columns: 1fr;
+            .role-container {
+                height: 40px;
             }
-
-            .section-title {
+        }
+        @media (max-width: 480px) {
+            .hero-title {
                 font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="geometric-pattern">
         <div style="width: 100px; height: 100px; top: 20%; left: 10%"></div>
         <div style="width: 80px; height: 80px; top: 60%; right: 15%"></div>
         <div style="width: 120px; height: 120px; top: 40%; left: 30%"></div>
+        <div style="width: 60px; height: 60px; bottom: 20%; right: 20%"></div>
     </div>
 
     <div class="modal" id="projectModal">
@@ -661,24 +796,18 @@
                 <img src="profile.jpg" alt="Dakshesh T" class="profile-img">
             </div>
             <div class="hero-content">
-                <h1 class="hero-title">AI & Data Science Innovator</h1>
-                <p class="hero-subtitle">
-                    Transforming complex data into intelligent solutions through cutting-edge AI and machine learning
-                </p>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">15%</div>
-                        <p>Model Accuracy Gain</p>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">20%</div>
-                        <p>Data Quality Improvement</p>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">5+</div>
-                        <p>Certifications Earned</p>
-                    </div>
+                <div class="title-container">
+                    <h1 class="hero-title">
+                        <span class="animated-text">Hi, I'm Dakshesh</span>
+                        <span class="typed-text-container">
+                            <span id="typed-text"></span>
+                            <span class="typed-cursor">|</span>
+                        </span>
+                    </h1>
                 </div>
+                <p class="hero-subtitle">
+                    Transforming raw data into actionable insights through intelligent algorithms
+                </p>
             </div>
         </div>
     </section>
@@ -740,22 +869,32 @@
             <div class="skill-card">
                 <i class="fas fa-brain skill-icon"></i>
                 <h3>Machine Learning</h3>
-                <p>PyTorch, TensorFlow, Scikit-learn</p>
+                <p>PyTorch • TensorFlow • Scikit-learn</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-server skill-icon"></i>
+                <h3>Backend Development</h3>
+                <p>Django • Flask • REST APIs</p>
             </div>
             <div class="skill-card">
                 <i class="fas fa-database skill-icon"></i>
                 <h3>Data Engineering</h3>
-                <p>SQL, MongoDB, ETL Pipelines</p>
+                <p>SQL • MongoDB • ETL</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-chart-line skill-icon"></i>
+                <h3>Data Analysis</h3>
+                <p>Power BI • Tableau • Pandas</p>
             </div>
             <div class="skill-card">
                 <i class="fas fa-cloud skill-icon"></i>
-                <h3>Cloud Technologies</h3>
-                <p>AWS, GCP, Docker</p>
+                <h3>Cloud & DevOps</h3>
+                <p>AWS • GCP • Docker</p>
             </div>
             <div class="skill-card">
                 <i class="fas fa-code skill-icon"></i>
                 <h3>Programming</h3>
-                <p>Python, C++, R, JavaScript</p>
+                <p>Python • C++ • R • JavaScript</p>
             </div>
         </div>
     </section>
@@ -838,7 +977,7 @@
 
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
@@ -849,24 +988,19 @@
         // Scroll Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        // Timeline Animation
-        const timelineObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
+                if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            timelineObserver.observe(item);
+        document.querySelectorAll('.section-title, .skill-card, .timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Add text animation completion handler
+        document.querySelector('.hero-title').addEventListener('animationend', () => {
+            document.querySelector('.animated-text').style.borderRight = 'none';
         });
 
         // Modal Functionality
@@ -934,22 +1068,60 @@
         document.querySelector('form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(e.target);
-            
+
             try {
                 const response = await fetch(e.target.action, {
                     method: 'POST',
                     body: formData,
                     headers: { 'Accept': 'application/json' }
                 });
-                
-                if(response.ok) {
+
+                if (response.ok) {
                     alert('Message sent successfully!');
                     e.target.reset();
                 }
-            } catch(error) {
+            } catch (error) {
                 alert('Error sending message. Please try again.');
             }
         });
+
+    const roles = ["Data Scientist", "ML Engineer", "Backend Developer"];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const deleteSpeed = 50;
+    const pauseBetween = 2000;
+
+    function typeRoles() {
+        const currentRole = roles[roleIndex];
+        const typedText = document.getElementById('typed-text');
+        const cursor = document.querySelector('.typed-cursor');
+
+        if (!isDeleting) {
+            typedText.textContent = currentRole.slice(0, ++charIndex);
+            if (charIndex === currentRole.length) {
+                isDeleting = true;
+                setTimeout(typeRoles, pauseBetween);
+                return;
+            }
+        } else {
+            typedText.textContent = currentRole.slice(0, --charIndex);
+            if (charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+            }
+        }
+
+        const speed = isDeleting ? deleteSpeed : typingSpeed;
+        setTimeout(typeRoles, speed);
+    }
+
+    // Start the animation after the initial text animation
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(typeRoles, 1500); // Start after "Hi, I'm Dakshesh" animation
+    });
     </script>
 </body>
+
 </html>
