@@ -10,33 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .typed-text-container {
-            margin-left: 0.5rem;
-            color: var(--primary);
-        }
-    
-        #typed-text {
-            display: inline-block;
-            position: relative;
-        }
-    
-        .typed-cursor {
-            opacity: 1;
-            animation: blink 0.7s infinite;
-            color: var(--primary);
-        }
-    
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-    
-        @keyframes blink {
-            0%, 100% { opacity: 1 }
-            50% { opacity: 0 }
-        }
-    </style>
-    <style>
         :root {
             --primary: #6366f1;
             --secondary: #4f46e5;
@@ -78,14 +51,18 @@
             width: 100vw;
             height: 100vh;
             z-index: -1;
+            opacity: 0.15;
+        }
+
+        .dark-mode .geometric-pattern {
             opacity: 0.05;
         }
 
         .geometric-pattern div {
             position: absolute;
-            border: 2px solid var(--primary);
+            border: 3px solid var(--primary);
             animation: float 20s infinite linear;
-            opacity: 0.7;
+            opacity: 0.5;
         }
 
         @keyframes float {
@@ -105,6 +82,7 @@
 
         .dark-mode .geometric-pattern div {
             border-color: var(--accent);
+            opacity: 0.7;
         }
 
         .header {
@@ -119,7 +97,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
         }
 
@@ -224,7 +202,7 @@
             background: var(--gradient);
             padding: 4px;
             margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             animation: profileFloat 0s ease-in-out infinite;
         }
 
@@ -244,103 +222,67 @@
             max-width: 600px;
         }
 
-        .hero-title {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
         .title-container {
             display: flex;
             align-items: center;
             gap: 1rem;
-            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            flex-wrap: nowrap;
         }
 
-        .animated-text {
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-        }
-
-        .animated-text::after {
-            content: "|";
-            position: absolute;
-            right: -10px;
-            animation: blink 0.7s infinite;
-        }
-
-        .role-container {
-            display: inline-block;
-            position: relative;
-            height: 60px;
-            overflow: hidden;
-            vertical-align: top;
-        }
-
-        .role-text {
-            position: relative;
-            display: block;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: roleAnimation 9s infinite;
-            white-space: nowrap;
-            font-size: 3rem;
+        .hero-title {
+            font-size: 3.5rem !important;
             line-height: 1;
+            margin: 0;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .typed-text-container {
+            display: inline-flex;
+            align-items: center;
+            min-height: 4rem;
+            line-height: 1;
+        }
+
+        #typed-text {
+            font-size: 2.8rem;
+            font-weight: 600;
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1;
+            white-space: nowrap;
         }
 
-        @keyframes roleAnimation {
-            0% { opacity: 0; transform: translateY(20px) }
-            15% { opacity: 1; transform: translateY(0) }
-            30% { opacity: 1; transform: translateY(0) }
-            45% { opacity: 0; transform: translateY(-20px) }
-            100% { opacity: 0; transform: translateY(-20px) }
-        }
-
-        .role-text:nth-child(1) { animation-delay: 1.5s }
-        .role-text:nth-child(2) { animation-delay: 4.5s }
-        .role-text:nth-child(3) { animation-delay: 7.5s }
-
-        @keyframes typing {
-            from { width: 0; opacity: 1 }
-            to { width: 100%; opacity: 1 }
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1 }
-            50% { opacity: 0 }
+        .typed-cursor {
+            font-size: 3rem;
+            color: var(--primary);
+            animation: blink 0.7s infinite;
+            margin-left: 0.3rem;
+            line-height: 1;
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             color: #64748b;
-            margin-bottom: 2rem;
+            max-width: 600px;
+            line-height: 1.6;
             animation: subtitleReveal 1.2s ease-out 0.3s both;
             position: relative;
-            display: inline-block;
+            padding-bottom: 1rem;
         }
 
         @keyframes subtitleReveal {
-            0% {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            60% {
-                opacity: 1;
-                transform: translateX(10px);
-            }
-            100% {
-                transform: translateX(0);
-            }
+            0% { opacity: 0; transform: translateX(-50px); }
+            60% { opacity: 1; transform: translateX(10px); }
+            100% { transform: translateX(0); }
         }
 
         .hero-subtitle::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 100%;
             height: 2px;
@@ -351,14 +293,7 @@
         }
 
         @keyframes underlineReveal {
-            to {
-                transform: scaleX(1);
-                transform-origin: left;
-            }
-        }
-
-        .dark-mode .hero-subtitle {
-            color: #94a3b8;
+            to { transform: scaleX(1); transform-origin: left; }
         }
 
         .section {
@@ -707,6 +642,11 @@
                 text-align: center;
             }
 
+            .title-container {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
             .timeline::before {
                 left: 20px;
             }
@@ -721,27 +661,38 @@
             }
         }
 
-
         @media (max-width: 768px) {
             .hero-title {
+                font-size: 2.8rem !important;
+            }
+            #typed-text {
+                font-size: 2.2rem;
+            }
+            .typed-cursor {
                 font-size: 2.5rem;
-                flex-direction: column;
-                align-items: flex-start;
             }
-            .role-text {
-                font-size: 1.8rem;
-            }
-            .role-container {
-                height: 40px;
+            .hero-subtitle {
+                font-size: 1.3rem;
             }
         }
+
         @media (max-width: 480px) {
+            .title-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
             .hero-title {
+                font-size: 2.2rem !important;
+            }
+            #typed-text {
+                font-size: 1.8rem;
+            }
+            .typed-cursor {
                 font-size: 2rem;
             }
-
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -799,11 +750,11 @@
                 <div class="title-container">
                     <h1 class="hero-title">
                         <span class="animated-text">Hi, I'm Dakshesh</span>
-                        <span class="typed-text-container">
-                            <span id="typed-text"></span>
-                            <span class="typed-cursor">|</span>
-                        </span>
                     </h1>
+                    <div class="typed-text-container">
+                        <span id="typed-text"></span>
+                        <span class="typed-cursor">|</span>
+                    </div>
                 </div>
                 <p class="hero-subtitle">
                     Transforming raw data into actionable insights through intelligent algorithms
@@ -965,6 +916,7 @@
         </div>
     </section>
 
+
     <script>
         // Dark Mode Toggle
         const themeToggle = document.getElementById('theme-toggle');
@@ -998,9 +950,39 @@
             observer.observe(item);
         });
 
-        // Add text animation completion handler
-        document.querySelector('.hero-title').addEventListener('animationend', () => {
-            document.querySelector('.animated-text').style.borderRight = 'none';
+        // Typing Animation
+        const roles = ["Data Scientist", "ML Engineer", "Backend Developer"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100;
+        const deleteSpeed = 50;
+        const pauseBetween = 1500;
+
+        function typeRoles() {
+            const currentRole = roles[roleIndex];
+            const typedText = document.getElementById('typed-text');
+            
+            if (!isDeleting) {
+                typedText.textContent = currentRole.slice(0, ++charIndex);
+                if (charIndex === currentRole.length) {
+                    isDeleting = true;
+                    setTimeout(typeRoles, pauseBetween);
+                    return;
+                }
+            } else {
+                typedText.textContent = currentRole.slice(0, --charIndex);
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                }
+            }
+
+            setTimeout(typeRoles, isDeleting ? deleteSpeed : typingSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(typeRoles, 1000);
         });
 
         // Modal Functionality
@@ -1084,44 +1066,6 @@
                 alert('Error sending message. Please try again.');
             }
         });
-
-    const roles = ["Data Scientist", "ML Engineer", "Backend Developer"];
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typingSpeed = 100;
-    const deleteSpeed = 50;
-    const pauseBetween = 2000;
-
-    function typeRoles() {
-        const currentRole = roles[roleIndex];
-        const typedText = document.getElementById('typed-text');
-        const cursor = document.querySelector('.typed-cursor');
-
-        if (!isDeleting) {
-            typedText.textContent = currentRole.slice(0, ++charIndex);
-            if (charIndex === currentRole.length) {
-                isDeleting = true;
-                setTimeout(typeRoles, pauseBetween);
-                return;
-            }
-        } else {
-            typedText.textContent = currentRole.slice(0, --charIndex);
-            if (charIndex === 0) {
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-            }
-        }
-
-        const speed = isDeleting ? deleteSpeed : typingSpeed;
-        setTimeout(typeRoles, speed);
-    }
-
-    // Start the animation after the initial text animation
-    document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(typeRoles, 1500); // Start after "Hi, I'm Dakshesh" animation
-    });
     </script>
 </body>
-
 </html>
