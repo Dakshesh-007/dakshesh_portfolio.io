@@ -1066,26 +1066,27 @@
                 alert('Error sending message. Please try again.');
             }
         });
+        // Disable right-click context menu
         document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-    return false;
-});
-
-// Optional: Disable keyboard shortcuts (Ctrl+Shift+I, Ctrl+U, F12, etc.)
-document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.shiftKey && e.keyCode === 73) { // Ctrl+Shift+I
-        e.preventDefault();
-        return false;
-    }
-    if (e.keyCode === 123) { // F12
-        e.preventDefault();
-        return false;
-    }
-    if (e.ctrlKey && e.keyCode === 85) { // Ctrl+U
-        e.preventDefault();
-        return false;
-    }
-});
+            e.preventDefault();
+            return false;
+        });
+        
+        // Optional: Disable keyboard shortcuts (Ctrl+Shift+I, Ctrl+U, F12, etc.)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) { // Ctrl+Shift+I
+                e.preventDefault();
+                return false;
+            }
+            if (e.keyCode === 123) { // F12
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode === 85) { // Ctrl+U
+                e.preventDefault();
+                return false;
+            }
+        });
     </script>
 </body>
 </html>
