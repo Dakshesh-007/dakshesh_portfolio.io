@@ -57,4 +57,4 @@ Contact
 - Email: add your email into the contact section in `index.html` (or link a mailto: there)
 
 License
-This repo is open — use it freely and make it your own. I recommend adding a LICENSE file (MIT) if you want an explicit license.
+This repo is open — use it freely and make it your own.
